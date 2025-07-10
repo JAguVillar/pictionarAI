@@ -70,7 +70,9 @@ const defaultWords = [
 const words = ref([...defaultWords])
 
 async function fetchAI() {
+  if (loading.value) return
   loading.value = true
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-pro',
