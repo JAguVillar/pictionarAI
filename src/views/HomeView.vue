@@ -62,7 +62,7 @@ const defaultWords = [
   },
   {
     id: 8,
-    category: 'Argenta',
+    category: 'Argento',
     word: 'Tomar mate',
     color: 'sky-500',
   },
@@ -85,7 +85,7 @@ categoria 4, nombre: dificil, color: verde, explicacion de la categoria: palabra
 categoria 5, nombre: todos juegan, color: rojo, explicacion de la categoria: puede ser cualquier palabra.
 categoria 6, nombre: Marca o logo, color: purpura, marcas reconocidas o logos visualmente conocidos.
 categoria 7, nombre: Meme o tendencia, color: rosa, explicacion de la categoria: meme popular, tendencia viral o situación reconocible en redes sociales.
-categoria 8, nombre: Argenta, color: cielo, explicacion de la categoria: elemento cultural argentino reconocible, como comidas típicas, modismos, personajes, costumbres o íconos nacionales.
+categoria 8, nombre: Argento, color: cielo, explicacion de la categoria: elemento cultural argentino reconocible, como comidas típicas, modismos, personajes, costumbres o íconos nacionales.
 ⚠️ Las palabras deben ser actuales o ampliamente conocidas por el público general. Pueden referirse a cultura pop, tecnología, redes sociales, memes virales o costumbres argentinas populares. Recuerda que no todo tiene que ser de Argentina, pero sí debe ser algo que la mayoría de las personas pueda reconocer o entender.`,
       config: {
         responseMimeType: 'application/json',
@@ -118,22 +118,23 @@ onMounted(() => {})
   <main class="min-h-screen flex flex-col justify-center items-center p-4 main">
     <div class="flex flex-col flex-1 w-full gap-y-2">
       <h1
-        class="font-black text-3xl text-center flex-1 flex justify-center items-center"
         @click="fetchAI"
+        class="active:scale-95 transition select-none text-3xl font-black text-center py-2 px-4 rounded-xl mb-4 active:bg-rose-300 dark:active:bg-rose-900 duration-300 ease-in-out"
       >
-        <span class="cinzel"> pictionar </span>
+        <span class="cinzel">PICTIONAR</span>
         <span
-          class="bg-linear-to-bl from-violet-500 to-fuchsia-500 bg-clip-text text-transparent font-black cinzel"
+          class="bg-gradient-to-bl from-violet-500 to-fuchsia-500 bg-clip-text text-transparent font-black cinzel"
           >AI</span
         >
+        <div class="text-sm font-bold mt-1 dmsans">Tocá para generar una nueva tarjeta</div>
       </h1>
       <div
         v-for="word in words"
         :key="word.id"
-        class="rounded-lg text-black flex-1 grid grid-rows-[auto_1fr] text-center"
+        class="rounded-lg overflow-hidden text-black flex-1 grid grid-rows-[auto_1fr] text-center"
         :class="[bgColorClasses[word.color]]"
       >
-        <div class="bg-black/35">
+        <div class="bg-black/35 rounded-t-lg">
           <h1 class="text-lg font-bold dmsans">
             {{ word.category }}
           </h1>
